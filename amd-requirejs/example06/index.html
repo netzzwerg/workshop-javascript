@@ -1,0 +1,21 @@
+<html>
+<head>
+	<title>requirejs example 04</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<script src="../require.js" type="text/javascript" charset="utf-8" ></script>
+	<script type="text/javascript" charset="utf-8">
+		require(["moduleA"], function(moduleA) {
+			console.log(moduleA.incrementCounter());
+		});
+		require(["moduleB"], function(moduleB) {
+			console.log(moduleB.incrementCounter());
+		});
+		require(["moduleC"], function(moduleC) {
+			console.log(moduleC.incrementCounter());
+		});
+	</script>
+</head>
+<body>
+
+</body>
+</html>
