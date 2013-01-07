@@ -16,10 +16,57 @@
 		<link rel="stylesheet" href="css/theme/default.css" id="theme">
 
 		<style type="text/css" media="screen">
-			html.intro body {
-				background:url("img/dataview.gif");
-				background-position:center;
-				background-size: 100%;
+			.controls {
+				display: none !important;
+			}
+			section.fill {
+				xmargin-top: -250px;
+				height: 700px;
+				padding: 0px !important;
+			}
+			section.fill h3 {
+				padding: 30px;
+				background: none repeat scroll 0 0 rgba(0, 0, 0, 0.7);
+			}
+			section.fill img {
+				border-radius: 10px 10px 10px 10px;
+				margin: 0px;
+				border: 0px;
+				max-height: none;
+				left: 0;
+				min-height: 100%;
+				min-width: 100%;
+				position: absolute;
+				top: 0;
+				z-index: -1;
+			}
+			html body {
+				background:url("img/brain.gif") no-repeat center center fixed; 
+				-webkit-background-size: cover;
+				-moz-background-size: cover;
+				-o-background-size: cover;
+				background-size: cover;
+			}
+			html.no body {
+				background:url("img/no.gif") no-repeat center center fixed;
+				-webkit-background-size: cover;
+				-moz-background-size: cover;
+				-o-background-size: cover;
+				background-size: cover;
+			}
+			html.dance body {
+				background:url("img/yeditemple.gif") no-repeat center center fixed;
+				-webkit-background-size: cover;
+				-moz-background-size: cover;
+				-o-background-size: cover;
+				background-size: cover;
+			}
+			html.move body {
+				background:url("img/ody.gif") no-repeat center center fixed;
+				-webkit-background-size: cover;
+				-moz-background-size: cover;
+				-o-background-size: cover;
+				background-size: cover;
 			}
 		</style>
 
@@ -43,7 +90,7 @@
 			<!-- Any section element inside of this container is displayed as a slide -->
 			<div class="slides">
 
-				<section data-state="intro">
+				<section >
 					<h1>JavaScript<br>Frameworks</h1>
 					<h3>Small Overview</h3>
 					<p>
@@ -51,7 +98,7 @@
 					</p>
 				</section>
 
-				<section>
+				<section data-state="no">
 					<h2>Heads Up</h2>
 					<p>
 						reveal.js is a framework for easily creating beautiful presentations using HTML. You'll need a browser with
@@ -63,8 +110,15 @@
 					</aside>
 				</section>
 
+				<section class="fill">
+					<h3>
+					Image filling the slide (with optional header)
+					</h3>
+					<img src="img/cat.jpg" width="1024" height="683">
+				</section>
+
 				<!-- Example of nested vertical slides -->
-				<section>
+				<section data-state="dance">
 					<section>
 						<h2>Vertical Slides</h2>
 						<p>
@@ -95,7 +149,7 @@
 					</section>
 				</section>
 
-				<section>
+				<section data-state="move">
 					<h2>Point of View</h2>
 					<p>
 						Press <strong>ESC</strong> to enter the slide overview. Hold down alt and click on any element to zoom in on it using <a href="http://lab.hakim.se/zoom-js">zoom.js</a>. Alt + click anywhere to zoom back out.

@@ -409,7 +409,7 @@ body {
 .reveal .progress {
 	position: fixed;
 	display: none;
-	height: 3px;
+	height: 13px;
 	width: 100%;
 	bottom: 0;
 	left: 0;
@@ -799,7 +799,7 @@ body {
 		height: 100%;
 		left: 0;
 		top: 0;
-		background: rgba(0,0,0,0.6);
+		background: rgba(0,0,0,0.7);
 		border-radius: 4px;
 
 		-webkit-transform: translateZ( -20px );
