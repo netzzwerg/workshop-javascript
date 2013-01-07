@@ -1,0 +1,109 @@
+<html>
+<head>
+	<title>css3 animations example 01</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<style type="text/css" media="screen">
+
+		body {
+			background-color: #000000;
+			background-size: 400px;
+		}
+
+		figure {
+			display: block;
+			position: absolute;
+			width: 250px;
+			height: 150px;
+			left: 25px;
+			top: 25px;
+			border: 2px solid black;
+			line-height: 150px;
+			font-size: 80px;
+			font-weight: bold;
+			color: #000000;
+			text-align: center;
+			margin: 0;
+			border-radius: 5px;
+			background: rgba(255, 255, 255, 0.8); 
+		}
+
+		.stage {
+			width: 300px;
+			height: 200px;
+			position: relative;
+			margin: 200px auto;
+			border: 1px solid #CCC;
+			perspective: 1100px;
+		}
+
+		.carousel {
+			transform: translateZ( -412px );
+			transform-style: preserve-3d;
+			transition: transform 1s;
+		}
+
+		figure:nth-child(1) {
+			transform: rotateY(   0deg ) translateZ( 412px );
+		}
+		figure:nth-child(2) {
+			transform: rotateY(  40deg ) translateZ( 412px );
+		}
+		figure:nth-child(3) {
+			transform: rotateY(  80deg ) translateZ( 412px );
+		}
+		figure:nth-child(4) {
+			transform: rotateY( 120deg ) translateZ( 412px );
+		}
+		figure:nth-child(5) {
+			transform: rotateY( 160deg ) translateZ( 412px );
+		}
+		figure:nth-child(6) {
+			transform: rotateY( 200deg ) translateZ( 412px );
+		}
+		figure:nth-child(7) {
+			transform: rotateY( 240deg ) translateZ( 412px );
+		}
+		figure:nth-child(8) {
+			transform: rotateY( 280deg ) translateZ( 412px );
+		}
+		figure:nth-child(9) {
+			transform: rotateY( 320deg ) translateZ( 412px );
+		}
+
+	</style>
+	<script src="../prefixfree.js" type="text/javascript" charset="utf-8" ></script>
+	<script src="../modernizr.js" type="text/javascript" charset="utf-8" ></script>
+</head>
+<body>
+	<section class="stage">
+		<div class="carousel">
+			<figure>1</figure>
+			<figure>2</figure>
+			<figure>3</figure>
+			<figure>4</figure>
+			<figure>5</figure>
+			<figure>6</figure>
+			<figure>7</figure>
+			<figure>8</figure>
+			<figure>9</figure>
+		</div>
+	</section>
+	<script type="text/javascript" charset="utf-8">
+		(function(){
+
+			var carousel = window.document.getElementsByClassName('carousel')[0];
+			var transformProp = Modernizr.prefixed('transform');
+			var angle = 0;
+			var tileCount = 9;
+
+			onDocumentClick = function( event ){
+				angle -= ( 360 / tileCount );
+				carousel.style[ transformProp ] = 'translateZ( -412px ) rotateY(' + angle + 'deg)';
+			};
+
+			window.document.addEventListener( 'click', onDocumentClick, false);
+
+		}());
+	</script>
+</body>
+</html>

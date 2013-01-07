@@ -1,0 +1,81 @@
+<html>
+<head>
+	<title>css3 animations example 01</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<style type="text/css" media="screen">
+
+		body {
+			background-color: #000000;
+			background-size: 400px;
+		}
+
+		figure {
+			display: block;
+			position: absolute;
+			width: 250px;
+			height: 250px;
+			left: 10px;
+			top: 10px;
+			border: 2px solid black;
+			line-height: 270px;
+			font-size: 80px;
+			font-weight: bold;
+			color: #000000;
+			text-align: center;
+			margin: 0;
+			border-radius: 5px;
+			background: rgba(255, 255, 255, 0.8); 
+		}
+
+		.stage {
+			width: 900px;
+			height: 600px;
+			position: relative;
+			margin: 200px auto;
+			perspective: 500px;
+		}
+
+		.cube {
+			transform-style: preserve-3d;
+			animation: cubeanimation linear infinite 14s;
+			position: relative;
+			left: 300px;
+			top: 150px;
+			width: 300px;
+			height: 300px;
+		}
+
+		figure {
+			transition: 0.5s linear;
+			position: absolute;
+			left: 15px;
+			top: 15px;
+		}
+
+		.front  { transform: translateZ(  150px ) }
+		.back   { transform: translateZ( -150px ) }
+		.left   { transform: translateX( -150px ) rotateY(	 -90deg ); }
+		.right  { transform: translateX(  150px ) rotateY(	  90deg ); }
+		.top    { transform: translateY( -150px ) rotateX(	 -90deg ); }
+		.bottom { transform: translateY(  150px ) rotateX(	  90deg ); }
+
+		@keyframes cubeanimation {
+			to { transform: rotateZ(1080deg) rotateX(360deg) rotateY(360deg); }
+		}
+
+	</style>
+	<script src="../prefixfree.js" type="text/javascript" charset="utf-8" ></script>
+</head>
+<body>
+	<section class="stage">
+		<div class=" cube">
+			<figure class="front">front</figure>
+			<figure class="back">back</figure>
+			<figure class="left">left</figure>
+			<figure class="right">right</figure>
+			<figure class="top">top</figure>
+			<figure class="bottom">bottom</figure>
+		</div>
+	</section>
+</body>
+</html>
