@@ -1,0 +1,34 @@
+<html>
+<head>
+	<title>css3 animations example 05</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<style type="text/css" media="screen">
+
+		body {
+			background-color: #000000;
+			overflow: hidden;
+		}
+
+		.character {
+			width: 87px;
+			height: 174px;
+			background:url(character.png) 0 0 no-repeat;
+			transform: translateX( 1044px );
+			transition: transform 12s linear;
+			animation: walk 1s steps(12) infinite;
+		}
+
+		@keyframes walk {
+			from { background-position: 0px; }
+			to { background-position: -1044px; }
+		}
+
+	</style>
+	<script src="../prefixfree.js" type="text/javascript" charset="utf-8" ></script>
+</head>
+<body>
+	<section class="stage">
+		<div class="character"></div>
+	</section>
+</body>
+</html>
