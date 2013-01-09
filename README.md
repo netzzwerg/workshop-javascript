@@ -1,9 +1,6 @@
+# JavaScript Workshop 
 
-JavaScript Workshop 
-
-
-
-# Modules with RequireJS
+## Modules with RequireJS
 
 * 01 Basic Modul Definition
 * 02 Module with Dependencies
@@ -15,9 +12,9 @@ JavaScript Workshop
 * 08 Plugins
 * 09 Multipage Build
 
-# Workflow with Yeoman and Grunt
+## Workflow with Yeoman and Grunt
 
-## Grunt
+### Grunt
 
 * 01 Initial example concat min
 * 02 Server watch
@@ -29,19 +26,19 @@ JavaScript Workshop
 * 08 Build own grunt plugin
 * 08 Build custom jquery
 
-## Bower
+### Bower
 
 * 01 Basic usage
 * 02 Set up own server
 * 03 Create own package with version
 
-## Yeoman
+### Yeoman
 
 * 01 Basic usage
 * 02 Build own generator
 * 03 Modify build process
 
-# Animation with CSS3
+## Animation with CSS3
 
 * 01 Move the tile
 * 02 Transition
@@ -51,7 +48,7 @@ JavaScript Workshop
 * 06 Rotating Cube
 * 07 Carousel
 
-# Animation with Canvas
+## Animation with Canvas
 
 * 01 Start template
 * 02 Animation
@@ -64,10 +61,10 @@ JavaScript Workshop
 * 09 Character animation
 * 10 Particle system
 
-# Game Development
+## Game Development
 
-*  slides
+*  Slides
 
-# Frameworks
+## JavaScript Frameworks
 
-*  slides
+*  Slides
