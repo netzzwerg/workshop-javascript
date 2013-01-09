@@ -1,5 +1,4 @@
 
-
 JavaScript Workshop 
 
 
@@ -52,7 +51,7 @@ JavaScript Workshop
 * 06 Rotating Cube
 * 07 Carousel
 
-Animation with Canvas
+# Animation with Canvas
 
 * 01 Start template
 * 02 Animation
@@ -65,10 +64,10 @@ Animation with Canvas
 * 09 Character animation
 * 10 Particle system
 
-Game Development
+# Game Development
 
 *  slides
 
-Frameworks
+# Frameworks
 
 *  slides
