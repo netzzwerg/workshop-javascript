@@ -1,0 +1,4 @@
+bower-core
+==========
+
+bower-core
