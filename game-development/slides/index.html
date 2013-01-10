@@ -1,0 +1,542 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+
+		<title>reveal.js - The HTML Presentation Framework</title>
+
+		<meta name="description" content="A framework for easily creating beautiful presentations using HTML">
+		<meta name="author" content="Hakim El Hattab">
+
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+		<link rel="stylesheet" href="css/reveal.css">
+		<link rel="stylesheet" href="css/theme/default.css" id="theme">
+
+		<style type="text/css" media="screen">
+			.controls {
+				display: none !important;
+			}
+			section.fill {
+				xmargin-top: -250px;
+				height: 700px;
+				padding: 0px !important;
+			}
+			section.fill h3 {
+				padding: 30px;
+				background: none repeat scroll 0 0 rgba(0, 0, 0, 0.7);
+			}
+			section.fill img {
+				border-radius: 10px 10px 10px 10px;
+				margin: 0px;
+				border: 0px;
+				max-height: none;
+				left: 0;
+				min-height: 100%;
+				min-width: 100%;
+				position: absolute;
+				top: 0;
+				z-index: -1;
+			}
+			html body {
+				background:url("img/brain.gif") no-repeat center center fixed; 
+				-webkit-background-size: cover;
+				-moz-background-size: cover;
+				-o-background-size: cover;
+				background-size: cover;
+			}
+			html.html5logo body {
+				background:url("img/html5-logo.png") no-repeat center center fixed;
+				-webkit-background-size: cover;
+				-moz-background-size: cover;
+				-o-background-size: cover;
+			}
+			html.no body {
+				background:url("img/no.gif") no-repeat center center fixed;
+				-webkit-background-size: cover;
+				-moz-background-size: cover;
+				-o-background-size: cover;
+				background-size: cover;
+			}
+			html.full body {
+				background:url("img/fullmetalljacket.gif") no-repeat center center fixed;
+				-webkit-background-size: cover;
+				-moz-background-size: cover;
+				-o-background-size: cover;
+				background-size: cover;
+			}
+			html.data body {
+				background:url("img/dataview.gif") no-repeat center center fixed;
+				-webkit-background-size: cover;
+				-moz-background-size: cover;
+				-o-background-size: cover;
+				background-size: cover;
+			}
+			html.move body {
+				background:url("img/ody.gif") no-repeat center center fixed;
+				-webkit-background-size: cover;
+				-moz-background-size: cover;
+				-o-background-size: cover;
+				background-size: cover;
+			}
+		</style>
+
+		<!-- For syntax highlighting -->
+		<link rel="stylesheet" href="lib/css/zenburn.css">
+
+		<!-- If the query includes 'print-pdf', use the PDF print sheet -->
+		<script>
+			document.write( '<link rel="stylesheet" href="css/print/' + ( window.location.search.match( /print-pdf/gi ) ? 'pdf' : 'paper' ) + '.css" type="text/css" media="print">' );
+		</script>
+
+		<!--[if lt IE 9]>
+		<script src="lib/js/html5shiv.js"></script>
+		<![endif]-->
+	</head>
+
+	<body>
+
+		<div class="reveal">
+
+			<!-- Any section element inside of this container is displayed as a slide -->
+			<div class="slides">
+
+				<section >
+					<h1>Web Game Developement</h1>
+					<h3>with JavaScript and HTML5</h3>
+					<p>
+						<small>Presentation by Béla Varga / <a href="http://twitter.com/netzzwerg">@netzzwerg</a></small>
+					</p>
+				</section>
+
+				<section>
+						<h2>Gave Development is awesome!</h2>
+						<iframe width="560" height="315" src="http://www.youtube.com/embed/J6QXRFuUSZs" frameborder="0" allowfullscreen></iframe>
+					</section>
+				</section>
+
+				<section data-state="html5logo">
+					<section>
+						<h2>Why JavaScript and HTML5?</h2>
+						<ul>
+							<li>No Browser Plugins</li>
+							<li>Open Standards</li>
+							<li>Easy Debugging (not in WebGL)</li>
+							<li>Simple Deployment</li>
+							<li>Multi Platform (Facebook, App Stores, TV, Rocket?)</li>
+						</ul>
+					</section>
+
+					<section class="fill">
+						<img src="img/HTML5-APIs.png" width="1024" height="683">
+					</section>
+
+					<section>
+						<h2>web game dev technologies</h2>
+						<ul>
+							<li>HTML / CSS / DOM</li>
+							<li>CSS3 / SVG / Canvas</li>
+							<li>WebWorker</li>
+							<li>WebSockets</li>
+							<li>LocalStorage</li>
+							<li>Fullscreen API</li>
+							<li>Mozilla GamepadAPI</li>
+							<li>Audio / Video</li>
+							<li>WebGL</li>
+							<li>WebRTC</li>
+							<li>Adobe Flash</li>
+						</ul>
+					</section>
+				</section>
+
+				<section data-state="move">
+					<h2>Simple Game Engine</h2>
+					<ul>
+						<li>Input</li>
+						<li>Physics</li>
+						<li>A.I.</li>
+						<li>Networking</li>
+						<li>Rendering</li>
+						<li>Audio</li>
+						<li>User Interface</li>
+						<li>Resource Management</li>
+					</ul>
+				</section>
+
+				<section>
+					<h2>Game Loop</h2>
+					<ul>
+						<li>Star Game (Level)</li>
+						<li>1 Check Input</li>
+						<li>2 Update Game State (Physics, AI, ...)</li>
+						<li>3 Rendering</li>
+						<li>4 Play Sounds</li>
+						<li>End Game (Highscore)</li>
+					</ul>
+					<p>Never access the DOM from the game loop!</p>
+				</section>
+
+				<section>
+					<section>
+						<h2>Player Input</h2>
+						<ul>
+							<li>Keyboard</li>
+							<li>Mouse</li>
+							<li>Touch</li>
+							<li>GamePad</li>
+							<li>Accelerometer</li>
+							<li>Microsoft Kinect</li>
+						</ul>
+					</section>
+
+					<section>
+						<h2>Keyboard Input</h2>
+						<p>You can´t just use the event-driven way of handling keys. The event loop is not in sync with the game loop.</p>
+						<pre><code contenteditable>
+if (keyCode === arrowRight) {
+    player.moveRight = true;
+} else if (keyCode === arrowUp) {
+    player.moveUp = true;
+};
+
+// inside the loop
+if(player.moveRight) {
+    player.x += 10;
+    player.moveRight = false;
+}
+						</code></pre>
+					</section>
+
+					<section>
+						<h2>Gamepad Input</h2>
+						<p><a href="https://wiki.mozilla.org/GamepadAPI">Web Gamepad API</a> (Draft Recommendation) by Mozilla</p>
+						<pre><code contenteditable>
+function axisHandler(event, pressed) {
+  var gamepads = document.getElementById("gamepads"),
+    gamepadId = event.gamepad.id,
+    axis = event.axis,
+    value = event.value;
+
+    console.log( gamepadId + " " + axis + " " + value );
+}
+
+window.addEventListener("MozGamepadAxisMove", axisHandler, false);
+						</code></pre>
+					</section>
+
+					<section>
+						<h2>Microsoft Kinect</h2>
+						<iframe width="560" height="315" src="http://www.youtube.com/embed/Xr8pi0knapY" frameborder="0" allowfullscreen></iframe>
+					</section>
+				</section>
+
+				<section>
+					<h2>Physics</h2>
+					<ul>
+						<li>Movement (Arcade, Simulation)</li>
+						<li>Collision Detection</li>
+						<li>Frameworks Box2D</li>
+						<li>Build your own (math,physics and fun)</li>
+					</ul>
+				</section>
+
+				<section>
+					<h2>Browser Rendering</h2>
+					<ul>
+						<li>DOM Elements</li>
+						<li>CSS3 2D / 3D</li>
+						<li>Canvas 2D (2.5D)</li>
+						<li>WebGL 3D</li>
+						<li>SVG</li>
+						<li>Mix it up!</li>
+					</ul>
+				</section>
+
+				<section>
+					<section>
+						<h2>JavaScript Timer</h2>
+						<ul>
+							<li>setTimeout</li>
+							<li>requestAnimationFrame</li>
+							<li>setImmidiate</li>
+						</ul>
+					</section>
+
+					<section>
+						<h2>setTimeout</h2>
+						<ul>
+							<li>Doesn’t take into account what else is happening in the browser.</li>
+							<li>No guarantee for execution time.</li>
+							<li>Can produce frame rates above 60FPS</li>
+							<li>Good for physics simulation timer.</li>
+						</ul>
+					</section>
+
+					<section>
+						<h2>setTimeout</h2>
+						<p>Runs in current browers according to the HTML5 Spec with 4ms. In some browsers with 10ms and with inactived tabs with 1000ms.</p>
+						<pre><code contenteditable>
+var count   = 0;
+var total   = 0;
+var lastTime;
+
+setTimeout(log, 0);
+setInterval(render, 1000);
+
+function log() {
+    setTimeout(log, 0);
+    var time = new Date().getTime();
+    if (lastTime) {
+        count += 1;
+        total += (time - lastTime);
+    }
+    lastTime = time;
+}
+function render() {
+    console.log(Math.round(total / count));
+}
+						</code></pre>
+					</section>
+
+					<section>
+						<h2>requestAnimationFrame</h2>
+						<ul>
+							<li>Depends on the frame rate of your browser and computer</li>
+							<li>In the most browsers with 60FPS (mobile browser 30FPS)</li>
+							<li>Groups all animations into a single browser repaint.</li>
+							<li>Slows down in hidden tabs or low battery.</li>
+						</ul>
+					</section>
+
+					<section>
+						<h2>requestAnimationFrame</h2>
+						<pre><code contenteditable>
+var fps = 30; // max 60 FPS
+function draw() {
+    setTimeout(function() {
+        requestAnimationFrame(draw);
+        // Drawing code goes here
+    }, 1000 / fps);
+}
+						</code></pre>
+					</section>
+
+					<section>
+						<h2>setImmidiate</h2>
+						<ul>
+							<li>Efficient Script Yielding specification from the W3C Web Performance Working Group</li>
+							<li>Implemented only by Microsoft (use it with <a href="https://github.com/NobleJS/setImmediate">shim</a>)</li>
+							<li>Wait for the UI queue to empty and then execute the new JavaScript task.</li>
+							<li>Like process.tick() on Node.js</li>
+							<li>Replacement for the good old setTimeout(0)</li>
+						</ul>
+					</section>
+
+				</section>
+
+				<section>
+					<h2>Resource Management</h2>
+					<ul>
+						<li>Images (sprite sheets, Data URLs)</li>
+						<li>CSS (@font-face,gradient,shadow)</li>
+						<li>Sound (time for Flash!)</li>
+						<li>Module System (lazy loading)</li>
+					</ul>
+					<pre><code contenteditable>
+src="data:image/gif;base64,R0lGODlhEAAOALMAAOazToeHh0tLS/7LZv/0jvb29t/f3//Ub/
+/ge8WSLf/rhf/3kdbW1mxsbP//mf///yH5BAAAAAAALAAAAAAQAA4AAARe8L1Ekyky67QZ1hLnjM5UUde0ECwLJoExKcpp
+V0aCcGCmTIHEIUEqjgaORCMxIC6e0CcguWw6aFjsVMkkIr7g77ZKPJjPZqIyd7sJAgVGoEGv2xsBxqNgYPj/gAwXEQA7" 
+width="16" height="14"
+					</code></pre>
+					<p><a href="http://thinkpixellab.com/pxloader/">pxloader</a></p>
+				</section>
+
+				<section>
+					<h2>HTML5 Audio</h2>
+					<ul>
+						<li>HTML5 Audio Tag</li>
+						<li>Webkit: Web Audio API </li>
+						<li>Firefox: Audio Data API</li>
+						<li><a href="http://www.schillmania.com/projects/soundmanager2/">SoundManager2</a> (Flash fallback)</li>
+					</ul>
+				</section>
+
+				<section>
+					<h2>Multiplayer</h2>
+					<ul>
+						<li>Realtime Communication (Comet)</li>
+						<li>Websockets API</li>
+						<li>Socket IO and Node.js</li>
+						<li>Frame rate independence</li>
+						<li>Interpolation of other client positions</li>
+					</ul>
+					<p><a href="http://buildnewgames.com/real-time-multiplayer/">Real Time Multiplayer in HTML5</a></p>
+				</section>
+
+				<section>
+					<section>
+						<h2>Optimization</h2>
+						<ul>
+							<li>Know your bottlenecks!</li>
+							<li>Benchmark often!</li>
+							<li>No micro optimization!</li>
+							<li>Don't blindly take advice!</li>
+						</ul>
+					</section>
+
+					<section>
+						<h2>Canvas Rendering</h2>
+						<ul>
+							<li>Don´t repaint the whole canvas (dirty rectangles)</li>
+							<li>Scale canvas with CSS</li>
+							<li>Use multiple canvas elements</li>
+							<li>Pre-render to hidden canvas</li>
+							<li>Don´t use floating point co-ords</li>
+							<li>Reduce game quality (combat mode)</li>
+							<li>Use Webworker (browser thread for rendering, worker thread for physics )</li>
+							<li>Use DOM instead of canvas for Game UI (font rendering)</li>
+							<li>Use CSS3 for simple animations, transformations, ...</li>
+						</ul>
+					</section>
+
+					<section>
+						<h2>Code Optimization</h2>
+						<ul>
+							<li>Functional API, not OO</li>
+							<li>Cache anything we lookup more than once</li>
+							<li>Inline code rather than reuse functions</li>
+							<li>Release objects you are finished with to be freed from memory</li>
+							<li>Pre-define often-used calculations or algorithms.</li>
+							<li>Resuse objects, arrays, and other complex instances instead of making new ones</li>
+							<li>Unroll all the loops!</li>
+						</ul>
+					</section>
+
+					<section>
+						<h2>Vector Math</h2>
+						<pre><code contenteditable>
+V2D.prototype.add = function(v) {
+    return new V2D(this.x + v.x, this.y + v.y);
+}
+
+V2D.prototype.subtract = function(v) {
+    return new V2D(this.x - v.x, this.y - v.y);
+}
+						</code></pre>
+						<pre><code contenteditable>
+var vector = new V2D();
+						</code></pre>
+					</section>
+
+					<section>
+						<h2>Garbage Collector</h2>
+						<ul>
+							<li>stop-the-world</li>
+							<li>incremental / concurrent</li>
+						</ul>
+						<img width="895" height="82" src="img/memory-graph.png" alt="Meny">
+						<p><a href="http://blog.chromium.org/2011/11/game-changer-for-interactive.html">Google Chrome Interactive garbage collector</a>.</p>
+					</section>
+
+					<section>
+						<h2>Better Vector Math</h2>
+						<pre><code contenteditable>
+V2D.prototype.add = function(v) {
+    this.x += v.x; this.y += v.y;
+}
+
+V2D.prototype.subtract = function(v, out) {
+    out.x = this.x - v.x;
+    out.y = this.y - v.y;
+}
+						</code></pre>
+						<pre><code contenteditable>
+var vector = V2.create():
+						</code></pre>
+					</section>
+
+					<section data-state="alert no">
+						<h2>No micro optimization!</h2>
+						<p>Math.floor() Returns the largest integer less than or equal to a number.<p>
+						<pre><code contenteditable>
+Math.floor(5.6);
+
+~~5.6
+						</code></pre>
+					</section>
+
+					<section>
+						<h2>Know your bottlenecks!</h2>
+						<ul>
+							<li>Canvas Rendering</li>
+							<li>Physics Simulation (Collision Detection)</li>
+							<li>Math Vector Calculation</li>
+							<li>Objects and Garbage Collector</li>
+						</ul>
+					</section>
+				</section>
+
+				<section data-state="full">
+					<h2>Web Game Dev Tips</h2>
+					<ul>
+						<li>Prototyping</li>
+						<li>Experiments</li>
+						<li>Pratice</li>
+						<li>Technologie Knowledge</li>
+						<li>Try new ways</li>
+					</ul>
+				</section>
+
+				<section data-state="data">
+					<h2>Demo time!</h2>
+					<ul>
+						<li><a href="http://www.movikantirevo.com/">movikantirevo (CSS3)</a></li>
+						<li><a href="http://www.chaostoperfection.com/">chaostoperfection (WebGL)</a></li>
+						<li><a href="http://www.ro.me/">rome (mixed)</a></li>
+						<li><a href="http://pinterest.com/netzzwerg/html5-games/">list of canvas games</a></li>
+					</ul>
+				</section>
+
+				<section>
+					<h1>THE END</h1>
+					<h3>Béla Varga / <a href="http://twitter.com/netzzwerg">@netzzwerg</a></h3>
+				</section>
+
+			</div>
+
+		</div>
+
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.min.js"></script>
+
+		<script>
+
+			// Full list of configuration options available here:
+			// https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				controls: true,
+				progress: true,
+				history: true,
+				center: true,
+
+				theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+				transition: Reveal.getQueryHash().transition || 'cube', // default/cube/page/concave/zoom/linear/none
+
+				// Optional libraries used to extend on reveal.js
+				dependencies: [
+					{ src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+					{ src: 'plugin/markdown/showdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+					{ src: 'plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+					{ src: 'plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
+					// { src: 'plugin/remotes/remotes.js', async: true, condition: function() { return !!document.body.classList; } }
+				]
+			});
+
+		</script>
+
+	</body>
+</html>
