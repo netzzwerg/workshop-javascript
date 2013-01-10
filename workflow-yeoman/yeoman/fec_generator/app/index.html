@@ -1,0 +1,46 @@
+<script type="text/javascript">
+  (function(){
+    feDev = {};
+    
+    var VERSION = "www.chip.de_120718_v0.5",
+        ITEMNAME = "FEDsettings",
+        storage = window.localStorage ? window.localStorage : document.cookie,
+        reqPath = "vendor/requirejs/2.0.1/require.js",
+        hook = "www.chip.de/hook.js",
+        config = "www.chip.de/config.js",
+        item, cookieArr, jsUrl, wUrl, i, x, y;
+    
+    if(storage === window.localStorage && storage.getItem(ITEMNAME)){
+        item = JSON.parse(unescape(storage.getItem(ITEMNAME)));
+        feDev = item.settings[item.use] || {};
+    }else{
+        cookieArr = storage.split(";");
+        for (i=0;i<cookieArr.length;i++){
+                x=cookieArr[i].substr(0,cookieArr[i].indexOf("="));
+                y=cookieArr[i].substr(cookieArr[i].indexOf("=")+1);
+                x=x.replace(/^\s+|\s+$/g,"");
+                if (x==="FEDsettings"){
+                    item = JSON.parse(unescape(y));
+                    feDev = item.settings[item.use] || {};
+                }
+        }
+    }
+
+    feDev['VERSION'] = VERSION;
+    if (feDev.fedUrl){
+        jsUrl = 'http://'+feDev.fedUrl+'.cxo.name'+feDev.jsOff;
+        wUrl = 'http://'+feDev.fedUrl+'.cxo.name'+feDev.wOff;
+        document.write( '<script type="text/javascript" src="'+wUrl+config+'"><' + '/script>',
+                        '<script type="text/javascript" src="'+jsUrl+reqPath+'" data-main="'+wUrl+hook+'"><' + '/script>',
+    }
+  })();
+</script>
+<script>
+  if (feDev.fedUrl) {
+    document.write('<noscript>');
+  }
+</script>
+
+<script type="text/javascript" src="http://www.chip.de/fec/www.chip.de_120718_v0.5/widgets/besteapps.chip.de/config.js"></script>
+<script type="text/javascript" src="http://www.chip.de/fec/www.chip.de_120718_v0.5/js/vendor/requirejs/2.0.1/require.js"    data-main="http://www.chip.de/fec/www.chip.de_120718_v0.5/widgets/besteapps.chip.de/hook.js"></script>
+</noscript>

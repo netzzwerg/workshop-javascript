@@ -1,0 +1,9 @@
+{
+	"path": {
+		"chip": "http://www.chip.de/fec/",
+		"require": "vendor/requirejs/2.0.1/require.js",
+		"global": "sync/global.js",
+		"hook": "hook-sync.js",
+		"config": "config.js"
+	}
+}
