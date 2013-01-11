@@ -44,9 +44,7 @@
 	Actor.prototype = {
 
 		calc: function() {
-			this.y = HEIGHT / 2 + Math.sin(this.angle) * 100;
-			this.x = WIDTH / 2 + Math.cos(this.angle) * 100;
-			this.angle = this.angle + 0.1;
+
 		},
 
 		draw: function() {

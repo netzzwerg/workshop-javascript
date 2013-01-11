@@ -10,10 +10,6 @@
 	var context = null;
 	var stage = {};
 
-	var easing = 0.2;
-	var targetX = 0;
-	var targetY = 0;
-
 	// STAGE Object
 	function Stage() {
 		this.c = "#000000"; // color
@@ -57,11 +53,6 @@
 
 		calc: function() {
 			// movement with easing
-			var vx = (targetX - this.x) * easing;
-			var vy = (targetY - this.y) * easing;
-
-			this.x += vx;
-			this.y += vy;
 		},
 
 		draw: function() {
@@ -82,16 +73,8 @@
 		context = canvas.getContext("2d");
 
 		// add event handler
-		canvas.addEventListener("click", function(e){
-			
-			targetX = e.clientX - canvas.offsetLeft;
-			targetY = e.clientY - canvas.offsetTop;
-		
-		}, false);
-		
-		//set target point
-		targetX = WIDTH / 2;
-		targetY = HEIGHT / 2;
+
+		// set target point
 
 		// create set of actors
 		for (var i = 0; i < MAX_ACTORS; i++) {

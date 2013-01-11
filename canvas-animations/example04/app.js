@@ -2,20 +2,17 @@
 
 (function(){
 
-	var MAX_ACTORS = 15;
+	var MAX_ACTORS = 1;
 	var WIDTH = 800;
 	var HEIGHT = 600;
 	var FPS = 30;
 	var actors = [];
 	var context = null;
-	var stage = {};
+
 
 	// STAGE Object
 	function Stage() {
-		this.l = 0; // left
-		this.r = WIDTH; // right
-		this.t = 0; // top
-		this.b = HEIGHT; // bottom
+
 	}
 
 	Stage.prototype = {
@@ -39,13 +36,9 @@
 
 	// ACTOR Object
 	function Actor() {
-		this.x = WIDTH / 2 * Math.random();
-		this.y = HEIGHT / 2 * Math.random();
-		this.r = 20 * Math.random(); // radius
-		this.vx = 5 * Math.random(); // velocity x
-		this.vy = 5 * Math.random(); // velocity y
+
 	}
-	
+
 	Actor.prototype = {
 
 		calc: function() {

@@ -27,8 +27,7 @@
 		},
 
 		clear: function() {
-			context.fillStyle = '#000000';
-			context.fillRect(0, 0, WIDTH, HEIGHT);
+
 		}
 
 	};
@@ -71,14 +70,7 @@
 		}
 
 		// request animation frame
-		var onFrame = window.requestAnimationFrame;
 
-		function tick(timestamp) {
-			stage.render();
-			onFrame(tick);
-		}
-
-		onFrame(tick);
 	}
 
 	window.onload = init;

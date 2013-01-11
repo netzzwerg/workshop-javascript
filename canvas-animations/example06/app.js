@@ -22,24 +22,7 @@
 	Stage.prototype = {
 
 		render: function() {
-			var i, j;
 
-			this.clear();
-
-			// draw each actor
-			for (i = 0; i < actors.length; i++) {
-
-				actors[i].c = '#666666';
-
-				for (j = 0; j < actors.length; j++) {
-					if (i !== j) {
-						this.circleHitTest(actors[i],actors[j]);
-					}
-				}
-
-				actors[i].calc();
-				actors[i].draw();
-			}
 		},
 
 		clear: function() {
@@ -48,15 +31,7 @@
 		},
 
 		circleHitTest: function(a,b) {
-			var dx = a.x - b.x;
-			var dy = a.y - b.y;
-			var dist = Math.sqrt(dx * dx + dy * dy);
-			var diameter = a.r + b.r;
 
-			if (dist < diameter){
-				a.c = '#FFFFFF';
-				b.c = '#FFFFFF';
-			}
 		}
 
 	};

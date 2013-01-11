@@ -10,10 +10,6 @@
 	var context = null;
 	var stage = {};
 
-	var spring = 0.1;
-	var friction = 0.8;
-	var gravity = 5;
-
 	var targetX = 0;
 	var targetY = 0;
 
@@ -30,18 +26,6 @@
 
 		render: function() {
 
-			this.clear();
-
-			actors[0].move(targetX, targetY);
-			actors[0].draw();
-
-			// draw each actor
-			for (var i=1; i<actors.length; i++) {
-				var actorA = actors[i-1];
-				var actorB = actors[i];
-				actorB.move(actorA.x, actorA.y);
-				actors[i].draw();
-			}
 		},
 
 		clear: function() {
@@ -57,30 +41,14 @@
 		this.c = "#FFFFFF"; // color
 		this.x = WIDTH / 2 * Math.random();
 		this.y = HEIGHT / 2 * Math.random();
-		this.r = 10; // radius
-		this.vx = 0; // velocity x
-		this.vy = 0; // velocity y
+
 	}
 
 	Actor.prototype = {
 
 		move: function(tx, ty) {
 			// movement with spring, friction and gravity
-			var dx = tx - this.x;
-			var dy = ty - this.y;
-			var ax = dx * spring;
-			var ay = dy * spring;
 
-			this.vx += ax;
-			this.vy += ay;
-
-			this.vy += gravity;
-
-			this.vx *= friction;
-			this.vy *= friction;
-
-			this.x += this.vx;
-			this.y += this.vy;
 		},
 
 		draw: function() {
