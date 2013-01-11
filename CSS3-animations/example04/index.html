@@ -1,0 +1,100 @@
+<html>
+<head>
+	<title>CSS3 animations example 04</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<style type="text/css" media="screen">
+
+		body {
+			background-color: #000000;
+			overflow: hidden;
+		}
+
+		div {
+			width: 250px;
+			height: 250px;
+			position: absolute;
+			border: 2px solid black;
+			line-height: 250px;
+			font-size: 20px;
+			font-weight: bold;
+			color: #000000;
+			text-align: center;
+			margin: 0;
+			border-radius: 5px;
+			background-color:  #FFFFFF;
+		}
+
+		.end {
+			left: 50px;
+			top: 50px;
+		}
+
+		#slide1 {
+			/* your code */
+		}
+
+		#slide1.begin {
+			animation: scaleanim 1s;
+			left: 350px;
+			top: 50px;
+		}
+
+		#slide1.end {
+			/* your code */
+		}
+
+		@keyframes scaleanim {
+			/* your code */
+		}
+
+		@keyframes scaleanim2 {
+			/* your code */
+		}
+
+		#slide2 {
+			/* your code */
+		}
+
+		#slide2.begin {
+			left: 650px;
+			top: 50px;
+		}
+
+		#slide2.end {
+			/* your code */
+		}
+
+		@keyframes skewanim {
+			/* your code */
+		}
+
+		@keyframes skewanim2 {
+			/* your code */
+		}
+
+		#slide3 {
+			/* your code */
+		}
+
+		#slide3.begin {
+			left: 950px;
+			top: 50px;
+		}
+
+		#slide3.end {
+			/* your code */
+		}
+
+
+	</style>
+	<script src="../helper.js" type="text/javascript" charset="utf-8" ></script>
+	<script src="../prefixfree.js" type="text/javascript" charset="utf-8" ></script>
+</head>
+<body>
+
+	<div id="slide1" class="begin">scaling animation</div>
+	<div id="slide2" class="begin">skew animation</div>
+	<div id="slide3" class="begin">3d rotate</div>
+
+</body>
+</html>
