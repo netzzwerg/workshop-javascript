@@ -12,32 +12,6 @@
 * 08 Plugins
 * 09 Multipage Build
 
-## Workflow with Yeoman and Grunt
-
-### Grunt
-
-* 01 Initial example concat min
-* 02 Server watch
-* 03 Qunit phantom js
-* 04 Multi task
-* 05 Async task
-* 06 Use underscore.js templates
-* 07 Grunt task and helper
-* 08 Build own grunt plugin
-* 08 Build custom jquery
-
-### Bower
-
-* 01 Basic usage
-* 02 Set up own server
-* 03 Create own package with version
-
-### Yeoman
-
-* 01 Basic usage
-* 02 Build own generator
-* 03 Modify build process
-
 ## Animation with CSS3
 
 * 01 Move the tile
@@ -65,6 +39,43 @@
 
 *  Slides
 
+## Multiplayer Game Development
+
+* 01 Basic Express Setup
+* 02 Local Player Movement
+* 03 Basic SocketIO Setup
+* 04 Multiplayer Setup 
+* 05 RequireJS Refactoring
+* 06 Grunt Build
+
+## Workflow with Yeoman and Grunt
+
+### Grunt
+
+* 01 Initial example concat min
+* 02 Server watch
+* 03 Qunit phantom js
+* 04 Multi task
+* 05 Async task
+* 06 Use underscore.js templates
+* 07 Grunt task and helper
+* 08 Build own grunt plugin
+* 08 Build custom jquery
+
+### Bower
+
+* 01 Basic usage
+* 02 Set up own server
+* 03 Create own package with version
+
+### Yeoman
+
+* 01 Basic usage
+* 02 Build own generator
+* 03 Modify build process
+
 ## JavaScript Frameworks
 
 *  Slides
+
+## Backbone 
