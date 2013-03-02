@@ -2,23 +2,20 @@
 
 (function(){
 
-	var MAX_ACTORS = 1;
 	var WIDTH = 800;
 	var HEIGHT = 600;
 	var FPS = 30;
 	var actors = [];
 	var context = null;
 	var stage = {};
-
-	var targetX = 0;
-	var targetY = 0;
+	var localUID = 0;
 
 	var spring = 0.005;
 	var friction = 0.95;
 
 	// STAGE Object
 	function Stage() {
-		this.c = "#000000"; // color
+		this.c = "#272822"; // color
 		this.l = 0; // left
 		this.r = WIDTH; // right
 		this.t = 0; // top
@@ -38,7 +35,7 @@
 		},
 
 		clear: function() {
-			context.fillStyle = '#000000';
+			context.fillStyle = this.c;
 			context.fillRect(0, 0, WIDTH, HEIGHT);
 		}
 
@@ -46,31 +43,40 @@
 
 
 	// ACTOR Object
-	function Actor() {
-		this.c = "#FFFFFF"; // color
-		this.x = WIDTH / 2 * Math.random();
-		this.y = HEIGHT / 2 * Math.random();
+	function Actor(uid) {
+		this.uid = uid;
+		this.c = "#66D9EF"; // color
+		this.x = 0;
+		this.y = 0;
 		this.r = 20; // radius
 		this.vx = 5; // velocity x
 		this.vy = 5; // velocity y
+		this.targetX = 0;
+		this.targetY = 0;
+		this.animate = false;
 	}
 
 	Actor.prototype = {
 
 		calc: function() {
-			// movement with spring and friction
-			var dx = targetX - this.x;
-			var dy = targetY - this.y;
-			var ax = dx * spring;
-			var ay = dy * spring;
+			if(this.animate) {
+				// movement with spring and friction
+				var dx = this.targetX - this.x;
+				var dy = this.targetY - this.y;
+				var ax = dx * spring;
+				var ay = dy * spring;
 
-			this.vx += ax;
-			this.vy += ay;
-			this.vx *= friction;
-			this.vy *= friction;
+				this.vx += ax;
+				this.vy += ay;
+				this.vx *= friction;
+				this.vy *= friction;
 
-			this.x += this.vx;
-			this.y += this.vy;
+				this.x += this.vx;
+				this.y += this.vy;
+			} else {
+				this.x = this.targetX;
+				this.y = this.targetY;
+			}
 		},
 
 		draw: function() {
@@ -79,6 +85,12 @@
 			context.beginPath();
 			context.arc(this.x, this.y, this.r, 0, Math.PI * 2, true);
 			context.fill();
+		},
+
+		setTarget: function(x,y) {
+			this.animate = true;
+			this.targetX = x;
+			this.targetY = y;
 		}
 	};
 
@@ -97,18 +109,16 @@
 		canvas.addEventListener("click", function(e){
 			var targetX = e.clientX - canvas.offsetLeft;
 			var targetY = e.clientY - canvas.offsetTop;
-			socket.emit('message', { targetX: targetX, targetY: targetY });
-			console.log('emit');
+			socket.emit('clientMessage', {
+				x: targetX,
+				y: targetY,
+				uid: localUID
+			});
 		}, false);
 
 		//set target point
 		targetX = WIDTH / 2;
 		targetY = HEIGHT / 2;
-
-		// create set of actors
-		for (var i = 0; i < MAX_ACTORS; i++) {
-			actors.push(new Actor());
-		}
 
 		// request animation frame
 		var onFrame = window.requestAnimationFrame;
@@ -120,11 +130,51 @@
 
 		onFrame(tick);
 
-		socket.on('message', function (data) {
-			console.log(data);
-			targetX = data.targetX;
-			targetY = data.targetY;
+		socket.on('connected', function (data) {
+			localUID = data.uid;
+			for (var prop in data.clients) {
+				if( data.clients.hasOwnProperty(prop) ) {
+					var client = data.clients[prop];
+					var actor = new Actor(client.data.uid);
+					actor.targetX = client.data.x;
+					actor.targetY = client.data.y;
+					actors.push(actor);
+				}
+			}
 		});
+
+		socket.on('clientConnect', function (data) {
+			var actor = new Actor(data.uid);
+			if(data.uid === localUID){
+				actor.c = '#A6E22E';
+			}
+			actors.push(actor);
+		});
+
+		socket.on('clientDisconnect', function (data) {
+			for (var i = 0; i < actors.length; i++) {
+				if(actors[i].uid === data.uid) {
+					actors.splice(i, 1);
+				}
+			}
+		});
+
+		socket.on('clientMessage', function (data) {
+			for (var i = 0; i < actors.length; i++) {
+				if(actors[i].uid === data.uid) {
+					actors[i].setTarget(data.x, data.y);
+				}
+			}
+		});
+
+		socket.on('connect', function () {
+			console.log('server');
+		});
+
+		socket.on('disconnect', function (data) {
+			actors = [];
+		});
+
 	}
 
 	window.onload = init;
