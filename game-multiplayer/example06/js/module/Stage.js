@@ -42,7 +42,6 @@ define(function () {
 		on: function(eventName, callback, context) {
 			switch (eventName) {
 				case 'click':
-					// add event handler
 					this.canvas.addEventListener("click", function(e){
 						var targetX = e.clientX - canvas.offsetLeft;
 						var targetY = e.clientY - canvas.offsetTop;

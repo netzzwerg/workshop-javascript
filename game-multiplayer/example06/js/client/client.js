@@ -1,4 +1,4 @@
-require(['ready','underscore','Stage','Actor'], function (ready, _, Stage, Actor) {
+define(['ready','underscore','Stage','Actor'], function (ready, _, Stage, Actor) {
 
 	var WIDTH = 800;
 	var HEIGHT = 600;
