@@ -136,6 +136,9 @@
 				if( data.clients.hasOwnProperty(prop) ) {
 					var client = data.clients[prop];
 					var actor = new Actor(client.data.uid);
+					if(client.data.uid === localUID) {
+						actor.c = '#A6E22E';
+					}
 					actor.targetX = client.data.x;
 					actor.targetY = client.data.y;
 					actors.push(actor);
@@ -145,9 +148,6 @@
 
 		socket.on('clientConnect', function (data) {
 			var actor = new Actor(data.uid);
-			if(data.uid === localUID){
-				actor.c = '#A6E22E';
-			}
 			actors.push(actor);
 		});
 
