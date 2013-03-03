@@ -72,7 +72,7 @@
     });
 
     // tell other sockets that there is a new client
-    sio.sockets.emit('clientConnect', {
+    socket.broadcast.emit('clientConnect', {
       'uid' : clientUID
     });
 
