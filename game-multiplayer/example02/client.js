@@ -85,7 +85,6 @@
 	function init() {
 
 		var canvas = document.getElementById('canvas');
-		var socket = io.connect('http://localhost:1337');
 
 		stage = new Stage();
 
@@ -95,10 +94,8 @@
 
 		// add event handler
 		canvas.addEventListener("click", function(e){
-			var targetX = e.clientX - canvas.offsetLeft;
-			var targetY = e.clientY - canvas.offsetTop;
-			socket.emit('message', { targetX: targetX, targetY: targetY });
-			console.log('emit');
+			targetX = e.clientX - canvas.offsetLeft;
+			targetY = e.clientY - canvas.offsetTop;
 		}, false);
 
 		//set target point
@@ -120,11 +117,6 @@
 
 		onFrame(tick);
 
-		socket.on('message', function (data) {
-			console.log(data);
-			targetX = data.targetX;
-			targetY = data.targetY;
-		});
 	}
 
 	window.onload = init;

@@ -6,41 +6,27 @@ define(['ready','underscore','Stage','Actor'], function (ready, _, Stage, Actor)
 	var UID = null; // UID of local client
 
 	function onStageClick(data, socket) {
-		socket.emit('clientMessage', {
-			x: data.x,
-			y: data.y,
-			uid: UID
-		});
+		// emit client target data
 	}
 
 	function onConnected(data) {
-		UID = data.uid;
-		_.each(data.clients, function(client, uid){
-			var actor = new Actor();
-			var color = '#66D9EF';
-			if(uid === UID) { color = '#A6E22E'; }
-			actor.init(color, uid);
-			actor.setPosition(client.data.x, client.data.y);
-			this.addActor(actor);
-		}, this);
+		// add remote clients to stage
 	}
 
 	function onClientConnect(data) {
-		var actor = new Actor();
-		actor.init('#66D9EF', data.uid);
-		this.addActor(actor);
+		// add local client
 	}
 
 	function onClientDisconnect(data) {
-		this.removeActor(data.uid);
+		// remove client
 	}
 
 	function onClientMessage(data) {
-		this.getActor(data.uid).setTarget(data.x, data.y);
+		// set target
 	}
 
 	function onDisconnect(data) {
-		this.clearActors();
+		// remove all actors
 	}
 
 	function init() {

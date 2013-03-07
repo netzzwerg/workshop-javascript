@@ -21,7 +21,7 @@ define(function () {
 			this.c = c; // color
 			this.r = w; // right
 			this.b = h; // bottom
-			if(canvasName) {
+			if (canvasName) {
 				this.canvas = document.getElementById(canvasName);
 				this.context = canvas.getContext('2d');
 				this.canvas.width = w;
@@ -32,17 +32,16 @@ define(function () {
 		calc: function() {
 			var actors = this.actors;
 			for (var i = 0; i < actors.length; i++) {
+				actors[i].screenWrapping(this);
 				actors[i].calc();
 			}
 		},
 
 		render: function() {
-			if(!this.doRender) { return; }
+			if (!this.doRender) { return; }
 			this.clear();
 			var actors = this.actors;
-			// draw each actor
 			for (var i = 0; i < actors.length; i++) {
-				actors[i].calc();
 				actors[i].draw(this.context);
 			}
 		},
@@ -74,7 +73,7 @@ define(function () {
 
 		removeActor: function(uid) {
 			for (var i = 0; i < this.actors.length; i++) {
-				if(this.actors[i].uid === uid) {
+				if (this.actors[i].uid === uid) {
 					this.actors.splice(i, 1);
 					return true;
 				}
@@ -84,7 +83,7 @@ define(function () {
 
 		getActor: function(uid) {
 			for (var i = 0; i < this.actors.length; i++) {
-				if(this.actors[i].uid === uid) {
+				if (this.actors[i].uid === uid) {
 					return this.actors[i];
 				}
 			}

@@ -28,18 +28,11 @@
 	Stage.prototype = {
 
 		render: function() {
-			this.clear();
-
-			// draw each actor
-			for (var i = 0; i < actors.length; i++) {
-				actors[i].calc();
-				actors[i].draw();
-			}
+			// your code here
 		},
 
 		clear: function() {
-			context.fillStyle = '#000000';
-			context.fillRect(0, 0, WIDTH, HEIGHT);
+			// your code here
 		}
 
 	};
@@ -58,34 +51,17 @@
 	Actor.prototype = {
 
 		calc: function() {
-			// movement with spring and friction
-			var dx = targetX - this.x;
-			var dy = targetY - this.y;
-			var ax = dx * spring;
-			var ay = dy * spring;
-
-			this.vx += ax;
-			this.vy += ay;
-			this.vx *= friction;
-			this.vy *= friction;
-
-			this.x += this.vx;
-			this.y += this.vy;
+			// your code here
 		},
 
 		draw: function() {
-			// ball
-			context.fillStyle = this.c;
-			context.beginPath();
-			context.arc(this.x, this.y, this.r, 0, Math.PI * 2, true);
-			context.fill();
+			// your code here
 		}
 	};
 
 	function init() {
 
 		var canvas = document.getElementById('canvas');
-		var socket = io.connect('http://localhost:1337');
 
 		stage = new Stage();
 
@@ -94,12 +70,6 @@
 		context = canvas.getContext("2d");
 
 		// add event handler
-		canvas.addEventListener("click", function(e){
-			var targetX = e.clientX - canvas.offsetLeft;
-			var targetY = e.clientY - canvas.offsetTop;
-			socket.emit('message', { targetX: targetX, targetY: targetY });
-			console.log('emit');
-		}, false);
 
 		//set target point
 		targetX = WIDTH / 2;
@@ -120,11 +90,6 @@
 
 		onFrame(tick);
 
-		socket.on('message', function (data) {
-			console.log(data);
-			targetX = data.targetX;
-			targetY = data.targetY;
-		});
 	}
 
 	window.onload = init;

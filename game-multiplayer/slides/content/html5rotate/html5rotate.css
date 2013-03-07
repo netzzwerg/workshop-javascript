@@ -1,0 +1,197 @@
+* { margin: 0; padding: 0; }
+		html, body { height: 100%; overflow: hidden; background: rgb(242,242,242); font-family: sans-serif; }
+		#background { position: absolute; }
+		#logo { 
+			left: 50%;
+			top: 50%; 
+			margin: -64px 0 0 -51px; 
+			width: 96px; 
+			height: 145px;
+			position: absolute;
+			-webkit-transform-style: preserve-3d;
+			-moz-transform-style: preserve-3d;
+			-o-transform-style: preserve-3d;
+			-ms-transform-style: preserve-3d;
+			transform-style: preserve-3d;
+			-webkit-perspective: 500;
+			-moz-perspective: 500;
+			-o-perspective: 500;
+			-ms-perspective: 500;
+			perspective: 500;
+			-webkit-perspective-origin: 50% 0;
+			-moz-perspective-origin: 50% 0;
+			-o-perspective-origin: 50% 0;
+			-ms-perspective-origin: 50% 0;
+            perspective-origin: 50% 0;
+		}
+			#logo h1 { top: -35px; left: 0; width: 106px; height: 25px; position: absolute; background: url(img/html.png);
+				-webkit-transform: rotateY(0) translateZ(0);
+    			-moz-transform: rotateY(0) translateZ(0);
+			    -o-transform: rotateY(0) translateZ(0);
+    			-ms-transform: rotateY(0) translateZ(0);
+                transform: rotateY(0) translateZ(0);
+			}
+			#hint { display: none; }
+			#logo figure {
+				width: 96px;
+				height: 145px;
+				display: block;
+				position: absolute;
+				background: url(img/150.png);
+				border-top: 1px solid #e34f26;
+			}
+			#logo .front { 
+			    background-position: left; 
+			    -webkit-transform: rotateY(-45deg) translateZ(48px);
+			    -moz-transform: rotateY(-45deg) translateZ(48px);
+			    -o-transform: rotateY(-45deg) translateZ(48px);
+			    -ms-transform: rotateY(-45deg) translateZ(48px);
+			    transform: rotateY(-45deg) translateZ(48px);
+			}
+			#logo .back { 
+			    background-position: left;
+			    -webkit-transform: rotateY(-45deg) rotateX(-180deg) rotateZ(180deg) translateZ(48px);
+			    -moz-transform: rotateY(-45deg) rotateX(-180deg) rotateZ(180deg) translateZ(48px);
+			    -o-transform: rotateY(-45deg) rotateX(-180deg) rotateZ(180deg) translateZ(48px);
+			    -ms-transform: rotateY(-45deg) rotateX(-180deg) rotateZ(180deg) translateZ(48px);
+			    transform: rotateY(-45deg) rotateX(-180deg) rotateZ(180deg) translateZ(48px);
+			}
+			#logo .right { 
+			    background-position: right;
+    			-webkit-transform: rotateY(45deg) translateZ(48px);
+    			-moz-transform: rotateY(45deg) translateZ(48px);
+    			-o-transform: rotateY(45deg) translateZ(48px);
+    			-ms-transform: rotateY(45deg) translateZ(48px);
+    			transform: rotateY(45deg) translateZ(48px);
+			}
+			#logo .left { 
+			    background-position: right;
+			    -webkit-transform: rotateY(-135deg) translateZ(48px);
+			    -moz-transform: rotateY(-135deg) translateZ(48px);
+			    -o-transform: rotateY(-135deg) translateZ(48px);
+			    -ms-transform: rotateY(-135deg) translateZ(48px);
+			    transform: rotateY(-135deg) translateZ(48px);
+			}
+			#logo .top { 
+			    height: 96px; 
+			    background: #e34f26;
+			    -webkit-transform: rotateY(-45deg) rotateX(90deg) translateZ(43px);
+			    -moz-transform: rotateY(-45deg) rotateX(90deg) translateZ(43px);
+			    -o-transform: rotateY(-45deg) rotateX(90deg) translateZ(43px);
+			    -ms-transform: rotateY(-45deg) rotateX(90deg) translateZ(43px);
+			    transform: rotateY(-45deg) rotateX(90deg) translateZ(43px);
+			}
+			#logo .bottom { 
+				height: 70px;
+				text-align: center;
+				padding: 13px 0; 
+				-webkit-transform: rotateY(45deg) rotateX(-90deg) translateZ(98px);
+				-moz-transform: rotateY(45deg) rotateX(-90deg) translateZ(98px);
+				-o-transform: rotateY(45deg) rotateX(-90deg) translateZ(98px);
+				-ms-transform: rotateY(45deg) rotateX(-90deg) translateZ(98px);
+				transform: rotateY(45deg) rotateX(-90deg) translateZ(98px); 
+				background: #e34f26;
+			}
+		p { 
+			right: 10%;
+			bottom: 121px;
+			position: absolute;
+			padding: 5px 13px 3px;
+			margin-left: -178px;
+			font-size: 12px;
+			color: #666;
+			background: white;
+			background: rgba(0,0,0,.05);
+			-moz-border-radius: 3px;
+			-webkit-border-radius: 3px;
+			border-radius: 3px;
+			-moz-box-shadow: 1px 1px 0 rgba(0,0,0,0.1);
+			-webkit-box-shadow: 1px 1px 0 rgba(0,0,0,0.1);
+			box-shadow: 1px 1px 0 rgba(0,0,0,0.1);
+		}
+		a, a:visited {
+			color: #333;
+			font-weight: bold;
+			text-decoration: none;
+			-webkit-transiton: .2s all linear;
+			-moz-transiton: .2s all linear;
+			-o-transiton: .2s all linear;
+			-ms-transiton: .2s all linear;
+			transiton: .2s all linear;
+		}
+		.cssanimations #logo, .cssanimations #background {
+			-webkit-animation-duration: 18s;
+    		-moz-animation-duration: 18s;
+    		-o-animation-duration: 18s;
+    		-ms-animation-duration: 18s;
+    		animation-duration: 18s;
+			-webkit-animation-iteration-count: infinite;
+			-moz-animation-iteration-count: infinite;
+			-o-animation-iteration-count: infinite;
+			-ms-animation-iteration-count: infinite;
+			animation-iteration-count: infinite;
+			-webkit-animation-timing-function: linear;
+			-moz-animation-timing-function: linear;
+			-o-animation-timing-function: linear;
+			-ms-animation-timing-function: linear;
+			animation-timing-function: linear;
+		}
+		.cssanimations #logo { 
+		    -webkit-animation-name: logo;
+    		-moz-animation-name: logo;
+        	-o-animation-name: logo;
+            -ms-animation-name: logo;
+            animation-name: logo;
+		}
+		.cssanimations #background { 
+		    -webkit-animation-name: sunray;
+    		-moz-animation-name: sunray;
+    		-o-animation-name: sunray;
+    		-ms-animation-name: sunray;
+    		animation-name: sunray;
+		}
+		@-webkit-keyframes sunray {
+			from { -webkit-transform: rotateZ(0) translateZ(-100px); }
+			to { -webkit-transform: rotateZ(-359deg) translateZ(-100px); }
+		}
+		@-moz-keyframes sunray {
+			from { -moz-transform: rotateZ(0) translateZ(-100px); }
+			to { -moz-transform: rotateZ(-359deg) translateZ(-100px); }
+		}
+		@-o-keyframes sunray {
+			from { -o-transform: rotateZ(0) translateZ(-100px); }
+			to { -o-transform: rotateZ(-359deg) translateZ(-100px); }
+		}
+		@-ms-keyframes sunray {
+			from { -ms-transform: rotateZ(0) translateZ(-100px); }
+			to { -ms-transform: rotateZ(-359deg) translateZ(-100px); }
+		}
+		@keyframes sunray {
+			from { transform: rotateZ(0) translateZ(-100px); }
+			to { transform: rotateZ(-359deg) translateZ(-100px); }
+		}
+		@-webkit-keyframes logo {
+			from { -webkit-transform: rotateY(0); }
+			to { -webkit-transform: rotateY(-359deg); }
+		}
+		@-moz-keyframes logo {
+			from { -moz-transform: rotateY(0); }
+			to { -moz-transform: rotateY(-359deg); }
+		}
+		@-o-keyframes logo {
+			from { -o-transform: rotateY(0); }
+			to { -o-transform: rotateY(-359deg); }
+		}
+		@-ms-keyframes logo {
+			from { -ms-transform: rotateY(0); }
+			to { -ms-transform: rotateY(-359deg); }
+		}
+		@keyframes logo {
+			from { transform: rotateY(0); }
+			to { transform: rotateY(-359deg); }
+		}
+		/* Fallback for browsers which don't support 3d transforms */
+		.no-csstransforms3d #logo { width: 128px; height: 145px; margin: -73px 0 0 -64px; background: url(img/logo.png); }
+			.no-csstransforms3d #logo h1 { left: 12px; }
+			.no-csstransforms3d #logo #hint { display: block; left: -93px; top: -85px; width: 331px; height: 32px; text-indent: -9999px; background: url(img/hint.png); position: absolute; }
+			.no-csstransforms3d #logo figure { display: none; }

@@ -2,12 +2,10 @@
 
   var serverPort    = process.env.PORT || 1337,
       express       = require('express'),
-      UUID          = require('node-uuid'),
       verbose       = false,
       app           = express(),
       http          = require('http'),
-      server        = http.createServer(app),
-      sio           = require('socket.io').listen(server);
+      server        = http.createServer(app);
 
 /* ------  ------  ------ Express ------  ------  ------ */
 
@@ -27,17 +25,4 @@
 
 /* ------  ------  ------ Socket.IO ------  ------  ------ */
 
-  sio.configure(function (){
-    sio.set('log level', 0);
-    sio.set('authorization', function (handshakeData, callback) {
-      callback(null, true); // error first callback style
-    });
-  });
-
-  sio.sockets.on('connection', function (socket) {
-    socket.on('message', function (data) {
-      console.log(data);
-      //socket.emit('message', data);
-      sio.sockets.emit('message', data);
-    });
-  });
+// your code here

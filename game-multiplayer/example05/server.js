@@ -7,8 +7,7 @@
       app           = express(),
       http          = require('http'),
       server        = http.createServer(app),
-      sio           = require('socket.io').listen(server),
-      clients       = {};
+      sio           = require('socket.io').listen(server);
 
   /* ------  ------  ------ Express ------  ------  ------ */
 
@@ -35,46 +34,17 @@
   });
 
   sio.sockets.on('connection', function (socket) {
-
-    newClient(socket);
-
-    socket.on('clientMessage', onClientMessage);
-    socket.on('disconnect', onDisconnect);
-
+    //your code here
   });
 
   function onClientMessage (data) {
-    clients[data.uid].data = data;
-    sio.sockets.emit('clientMessage', data);
-    console.log(' client\t - '.blue, data);
+    //your code here
   }
 
   function onDisconnect () {
-    var uid = this.id;
-    sio.sockets.emit('clientDisconnect', {uid:uid});
-    delete clients[uid];
-    console.log(' client\t - '.red + uid + ' disconnected');
+    //your code here
   }
 
   function newClient(socket) {
-    var clientUID = socket.id;
-
-    clients[clientUID] = {'data' : {
-      'x' : 0,
-      'y' : 0,
-      'uid': clientUID
-    }};
-
-    // tell current connection that it is connected
-    socket.emit('connected', {
-      'uid' : clientUID,
-      'clients' : clients
-    });
-
-    // tell other sockets that there is a new client
-    socket.broadcast.emit('clientConnect', {
-      'uid' : clientUID
-    });
-
-    console.log(' client\t - '.green + clientUID + ' connected');
+    //your code here
   }

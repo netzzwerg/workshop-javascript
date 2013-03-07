@@ -10,6 +10,10 @@
       sio           = require('socket.io').listen(server),
       clients       = {};
 
+  /* ------  ------  ------ Physics ------  ------  ------ */
+
+// your code here
+
   /* ------  ------  ------ Express ------  ------  ------ */
 
   server.listen(serverPort);
@@ -35,16 +39,14 @@
   });
 
   sio.sockets.on('connection', function (socket) {
-
     newClient(socket);
-
     socket.on('clientMessage', onClientMessage);
     socket.on('disconnect', onDisconnect);
-
   });
 
   function onClientMessage(data) {
     clients[data.uid].data = data;
+    stage.getActor(data.uid).setTarget(data.x, data.y, data.angle);
     sio.sockets.emit('clientMessage', data);
     console.log(' client\t - '.blue, data);
   }
@@ -53,23 +55,30 @@
     var uid = this.id;
     sio.sockets.emit('clientDisconnect', {uid:uid});
     delete clients[uid];
+    stage.removeActor(uid);
     console.log(' client\t - '.red + uid + ' disconnected');
   }
 
   function newClient(socket) {
     var clientUID = socket.id;
 
-    clients[clientUID] = {'data' : {
-      'x' : 0,
-      'y' : 0,
-      'uid': clientUID
-    }};
-
     // tell current connection that it is connected
     socket.emit('connected', {
       'uid' : clientUID,
       'clients' : clients
     });
+
+    clients[clientUID] = {'data' : {
+      'x' : 0,
+      'y' : 0,
+      'angle' : 0,
+      'uid': clientUID
+    }};
+
+    // create and add new actor
+    var actor = new Actor();
+    actor.init('#A6E22E', clientUID);
+    stage.addActor(actor);
 
     // tell other sockets that there is a new client
     socket.broadcast.emit('clientConnect', {

@@ -131,48 +131,27 @@
 		onFrame(tick);
 
 		socket.on('connected', function (data) {
-			localUID = data.uid;
-			for (var prop in data.clients) {
-				if( data.clients.hasOwnProperty(prop) ) {
-					var client = data.clients[prop];
-					var actor = new Actor(client.data.uid);
-					if(client.data.uid === localUID) {
-						actor.c = '#A6E22E';
-					}
-					actor.targetX = client.data.x;
-					actor.targetY = client.data.y;
-					actors.push(actor);
-				}
-			}
+			// your code here
 		});
 
 		socket.on('clientConnect', function (data) {
-			var actor = new Actor(data.uid);
-			actors.push(actor);
+			// your code here
 		});
 
 		socket.on('clientDisconnect', function (data) {
-			for (var i = 0; i < actors.length; i++) {
-				if(actors[i].uid === data.uid) {
-					actors.splice(i, 1);
-				}
-			}
+			// your code here
 		});
 
 		socket.on('clientMessage', function (data) {
-			for (var i = 0; i < actors.length; i++) {
-				if(actors[i].uid === data.uid) {
-					actors[i].setTarget(data.x, data.y);
-				}
-			}
+			// your code here
 		});
 
 		socket.on('connect', function () {
-			console.log('server');
+			// your code here
 		});
 
 		socket.on('disconnect', function (data) {
-			actors = [];
+			// your code here
 		});
 
 	}
