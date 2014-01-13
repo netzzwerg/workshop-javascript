@@ -2,7 +2,11 @@
   "name": "my-project-name",
   "version": "0.1.0",
   "devDependencies": {
-    "grunt": "~0.3.17",
-    "grunt-contrib-connect": "~0.1.0"
+    "grunt": "~0.4.0",
+    "grunt-contrib-jshint": "~0.7.2",
+    "grunt-contrib-concat": "~0.3.0",
+    "grunt-contrib-uglify": "~0.2.7",
+    "grunt-contrib-connect": "~0.6.0",
+    "grunt-contrib-watch": "~0.5.3"
   }
 }
