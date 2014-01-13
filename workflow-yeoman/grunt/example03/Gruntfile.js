@@ -11,7 +11,7 @@ module.exports = function(grunt) {
           undef: true
         },
         files: {
-          src: ['app/src/app.js', 'app/src/lib.js']
+          src: ['../app/src/app.js', '../app/src/lib.js']
         }
       }
     },
@@ -21,14 +21,14 @@ module.exports = function(grunt) {
         options: {
           separator: ';',
         },
-        src: ['app/src/jquery.js' ,'app/src/app.js', 'app/src/lib.js'],
-        dest: 'app/build/app.js'
+        src: ['../app/src/jquery.js' ,'../app/src/app.js', '../app/src/lib.js'],
+        dest: '../app/build/app.js'
       }
     },
 
     uglify: {
       build: {
-        files: { 'app/build/app.min.js': [ 'app/build/app.js' ] }
+        files: { '../app/build/app.min.js': [ '../app/build/app.js' ] }
       }
     },
 
@@ -36,7 +36,7 @@ module.exports = function(grunt) {
       server: {
         options: {
           port: 9001,
-          base: 'app',
+          base: '../app',
           keepalive: true,
           open: true
         }
