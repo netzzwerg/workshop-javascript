@@ -49,16 +49,20 @@
 * 05 RequireJS Refactoring
 * 06 Grunt Build
 
+## Webdev Workflow and Toolbox
+
+* Slides
+
 ## Workflow with Yeoman and Grunt
 
 ### Grunt
 
-* 01 Initial example concat min
-* 02 Server watch
-* 03 Qunit phantom js
-* 04 Multi task
-* 05 Async task
-* 06 Use underscore.js templates
+* 01 Install Grunt
+* 02 Initial example with JSHint, concat and UglifyJS2
+* 03 Static web server
+* 04 File watcher and live reload
+* 05 Unit testing with Jasmine
+* 06 Multi and async task
 * 07 Grunt task and helper
 * 08 Build own grunt plugin
 * 08 Build custom jquery
@@ -68,6 +72,7 @@
 * 01 Basic usage
 * 02 Set up own server
 * 03 Create own package with version
+* 04 Grunt and Bower
 
 ### Yeoman
 
@@ -78,5 +83,3 @@
 ## JavaScript Frameworks
 
 *  Slides
-
-## Backbone 
