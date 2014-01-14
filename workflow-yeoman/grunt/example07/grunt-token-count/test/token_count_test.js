@@ -1,3 +1,5 @@
+'use strict';
+
 var grunt = require('grunt');
 
 /*
@@ -20,15 +22,14 @@ var grunt = require('grunt');
     test.ifError(value)
 */
 
-exports['fec_grunt_plugin'] = {
+exports.token_count = {
   setUp: function(done) {
-    // setup here
+    // setup here if necessary
     done();
   },
-  'helper': function(test) {
+  your_test: function(test) {
     test.expect(1);
-    // tests here
-    test.equal(grunt.helper('fec_grunt_plugin'), 'fec_grunt_plugin!!!', 'should return the correct value.');
+    test.equal(1, 1, 'should describe what the default behavior is.');
     test.done();
   }
 };
